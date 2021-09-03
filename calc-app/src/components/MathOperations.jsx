@@ -4,15 +4,15 @@ import Button from "./Button";
 
 const MathOperations = ({ onClickOperation, onClickEqual }) => (
   <section className="math-operations">
-    <Button text="+" clickHandler={onclickOperation}></Button>
-    <Button text="-" clickHandler={onclickOperation}></Button>
-    <Button text="*" clickHandler={onclickOperation}></Button>
-    <Button text="/" clickHandler={onclickOperation}></Button>
-    <Button text="=" clickHandler={onclickEqual}></Button>
+    <Button text="+" clickHandler={onClickOperation}></Button>
+    <Button text="-" clickHandler={onClickOperation}></Button>
+    <Button text="*" clickHandler={onClickOperation}></Button>
+    <Button text="/" clickHandler={onClickOperation}></Button>
+    <Button text="=" clickHandler={onClickEqual}></Button>
   </section>
 );
 
-MathOperation.propTypes = {
+MathOperations.propTypes = {
   onClickOperation: propTypes.func.isRequired,
   onClickEqual: propTypes.func.isRequired,
 };
