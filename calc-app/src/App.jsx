@@ -1,6 +1,7 @@
 import React from "react";
 import Result from "./components/Result";
 import Button from "./components/Button";
+import MathOperations from "./components/MathOperations";
 import "./App.css";
 
 //Funcion de flecha
@@ -32,14 +33,7 @@ const clickHandlerFunction = text => {
         <button>r</button>
       </div>
 
-      <div className="math-operations">
-        <button></button>
-        <button>+</button>
-        <button>-</button>
-        <button>*</button>
-        <button>/</button>
-        <button>=</button>
-      </div>
+    <MathOperations/>
     </main>
   );
 };
