@@ -1,30 +1,23 @@
-import React from "react";
-import Result from "./components/Result";
-import Button from "./components/Button";
-import MathOperations from "./components/MathOperations";
+import React, {useState} from "react";
 import Functions from "./components/Functions";
+import Numbers from "./components/Numbers";
+import MathOperations from "./components/MathOperations";
+import Result from "./components/Result";
 import "./App.css";
 
 //Funcion de flecha
 const App = () => {
-  const clickHandlerFunction = (text) => {};
-
+  const arrayTextoFuncionModificacionTexto = useState("");
+  //arrayTextoFuncionModificacionTexto=> ["hola", funcion]
+  const texto = arrayTextoFuncionModificacionTexto[0]
+  const funcionModificaTexto = arrayTextoFuncionModificaTexto[1]
   //Lo que ejecuta la funcion
   return (
     <main className="react-calculator">
       <Result value={undefined} />
-      <div className="numbers">
-        <Button text="1" clickHandler={(clickHandlerFunction) => {}} />
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>0</button>
-      </div>
+      <Numbers
+        onClickNumbers={(number) => console.log("Click en number", number)}
+      />
 
       <Functions
         onContenClear={() => console.log("Content clear")}
