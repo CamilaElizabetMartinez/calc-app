@@ -7,16 +7,21 @@ import "./App.css";
 
 //Funcion de flecha
 const App = () => {
-  const arrayTextoFuncionModificacionTexto = useState("");
-  //arrayTextoFuncionModificacionTexto=> ["hola", funcion]
-  const texto = arrayTextoFuncionModificacionTexto[0]
-  const funcionModificaTexto = arrayTextoFuncionModificaTexto[1]
+  //array destructuring
+  const [stack, setStack] = useState("");
+
+  //1er posicion: valor (que inicialmente es el valor por defecto)
+  //2da posicion: funcion que me va a permitit modificar el valor por defecto
+
   //Lo que ejecuta la funcion
+  console.log("Renderizacion de App")
   return (
     <main className="react-calculator">
-      <Result value={undefined} />
+      <Result value={stack} />
       <Numbers
-        onClickNumbers={(number) => console.log("Click en number", number)}
+        onClickNumber={number => {console.log("Click en number", number)
+        setStack (number)
+      }}
       />
 
       <Functions
