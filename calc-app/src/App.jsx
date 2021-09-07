@@ -1,4 +1,6 @@
+/* eslint no-eval: 0 */
 import React, { useState } from "react";
+import words from "lodash.words";
 import Functions from "./components/Functions";
 import Numbers from "./components/Numbers";
 import MathOperations from "./components/MathOperations";
@@ -13,8 +15,9 @@ const App = () => {
   //1er posicion: valor (que inicialmente es el valor por defecto)
   //2da posicion: funcion que me va a permitit modificar el valor por defecto
 
+  const items =  words(stack, /[^-^+^*^/]+/g)
   //Lo que ejecuta la funcion
-  console.log("Renderizacion de App");
+  console.log("Renderizacion de App", items);
   return (
     <main className="react-calculator">
       <Result value={stack} />
