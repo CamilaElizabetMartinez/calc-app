@@ -7,50 +7,41 @@ import MathOperations from "./components/MathOperations";
 import Result from "./components/Result";
 import "./App.css";
 
-//Funcion de flecha
 const App = () => {
-  //array destructuring
   const [stack, setStack] = useState("");
 
-  //1er posicion: valor (que inicialmente es el valor por defecto)
-  //2da posicion: funcion que me va a permitit modificar el valor por defecto
+  const items = words(stack, /[^-^+^*^/]+/g);
 
-  const items =  words(stack, /[^-^+^*^/]+/g)
-  //Lo que ejecuta la funcion
-  console.log("Renderizacion de App", items);
+  const value = items.length > 0 ? items[items.lenght - 1] : "0";
   return (
     <main className="react-calculator">
-      <Result value={stack} />
+      <Result value={value} />
+
       <Numbers
-        onClickNumber={(number) => {
-          console.log("Click en number", number);
-          setStack(`${stack}${number}`);
-        }}
+        onClickNumber={number =>
+          setStack(`${stack}${number}`)
+        }
       />
 
       <Functions
-        onContenClear={() => {
-          console.log("Content clear");
-          setStack("");
-        }}
+        onContenClear={() =>
+          setStack('')
+        }
         onDelete={() => {
           if (stack.length > 0) {
-            const newStack = stack.substring(0, stack.length - 1);
-            console.log("onDelete", newStack);
+            const newStack = stack.substring(0, stack.length - 1)
             setStack(newStack);
           }
         }}
       />
 
       <MathOperations
-        onClickOperation={(operation) => {
-          console.log("Operation:", operation);
-          setStack(`${stack}${operation}`);
-        }}
-        onClickEqual={(equal) => {
-          console.log("Equal:", equal);
-          setStack(eval(stack).toString());
-        }}
+        onClickOperation={operation =>
+          setStack(`${stack}${operation}`)
+        }
+        onClickEqual={equal =>
+          setStack(eval(stack).toString())
+        }
       />
     </main>
   );
